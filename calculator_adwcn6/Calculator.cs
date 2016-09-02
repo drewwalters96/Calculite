@@ -10,10 +10,10 @@ namespace Calculite
 {
     class Calculator
     {
-        private Queue queue = new Queue();
-
         public Boolean append { get; set; } = false;
         public string operand { get; set; } // Holds display value
+
+        private Queue queue = new Queue();
 
         /// <summary>
         /// Clears the operation queue.
@@ -34,9 +34,10 @@ namespace Calculite
                 Operation operation = (Operation)this.queue.Dequeue();
                 double secondOperand = double.Parse((string)this.queue.Dequeue());
 
-                // Clear queue for result of operation
+                // Clear queue in order to append result of operation
                 this.queue.Clear();
 
+                // Compute operation and enqueue
                 switch (operation)
                 {
 
@@ -63,13 +64,16 @@ namespace Calculite
             }
         }
 
-        public string getNextOperation()
+        /// <summary>
+        /// Returns the pending operand on the queue as a string
+        /// </summary>
+        public string getNextOperand()
         {   
             return (string)this.queue.Peek();
         }
 
         /// <summary>
-        /// Queues an operand for evaluation.
+        /// Queues an operand for evaluation
         /// </summary>
         public void queueOperand()
         {
@@ -77,35 +81,42 @@ namespace Calculite
         }
 
         /// <summary>
-        /// Queues the first part of the requested operation if the queue is empty.
-        /// If the queue is not empty, the second half of the requested operation 
-        /// is queued and then evaluated.
+        /// Handles the queueing of operations and previous operands
         /// <typeparam name="operation">Mathematical operation to be evaluated</typeparam>
         /// </summary>
-        public void queueOperation(Operation operation)
+        public string queueOperation(Operation operation)
         {
+            // If queue is empty, queue both the operand and operation
             if (queue.Count == 0)
             {
                 this.queue.Enqueue(this.operand);
                 this.queue.Enqueue(operation);
                 this.operand = "";
             }
+
+            // If queue contains an operand, queue only the operation
             else if (queue.Count == 1)
             {
                 this.queue.Enqueue(operation);
             }
+
+            // Queue has pending operand and operation; queue the remaining operand and evaluate
             else
             {
                 this.queue.Enqueue(this.operand);
                 evaluate();
-                this.queue.Enqueue(operation);
+                this.queue.Enqueue(operation); // Queue the result of the evaluation
             }
 
             this.append = false;
+
+            return (string)queue.Peek();
         }
 
         /// <summary>
-        /// Updates the display after a button is clicked.
+        /// Updates the display after a button is clicked. 
+        /// If append is true, the user has not requested an operation yet and is still entering an operand
+        /// If append is false, the user has requested an operation
         /// <typeparam name="value">Value to add to the display</typeparam>
         /// </summary>
         public void updateOperand(string value)

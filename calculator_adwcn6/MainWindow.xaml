@@ -5,17 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculite"
         mc:Ignorable="d"
-        Title="Calculite" Height="223.081" Width="193.047" ResizeMode="NoResize" KeyDown="key_press">
+        Title="Calculite" Height="223.081" Width="189.19" ResizeMode="NoResize" KeyDown="key_press" Margin="0,0,10,0" Padding="20,20,20,20">
     <Grid Margin="0,0,357,346">
         <Canvas>
-            <Grid Height="194" Width="186">
+            <Grid Height="194" Width="186" Margin="0" Canvas.Left="-5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="37*"/>
-                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="21*"/>
                 </Grid.ColumnDefinitions>
                 <Button x:Name="number7" Content="7" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Width="37" Height="31" Click="button_Click" FontWeight="Bold" FontFamily="Lucida Sans" FontSize="24" RenderTransformOrigin="-0.035,0.376"/>
                 <Button x:Name="number8" Content="8" HorizontalAlignment="Left" Margin="52,43,0,0" VerticalAlignment="Top" Width="37" Height="31" Click="button_Click" FontWeight="Bold" FontFamily="Lucida Sans" FontSize="24"/>
-                <Button x:Name="number9" Content="9" HorizontalAlignment="Left" Margin="94,43,0,0" VerticalAlignment="Top" Width="37" Height="31" Click="button_Click" FontWeight="Bold" FontFamily="Lucida Sans" FontSize="24" Grid.ColumnSpan="2"/>
+                <Button x:Name="number9" Content="9" HorizontalAlignment="Left" Margin="94,43,0,0" VerticalAlignment="Top" Width="37" Height="31" Click="button_Click" FontWeight="Bold" FontFamily="Lucida Sans" FontSize="24" Grid.ColumnSpan="3"/>
                 <Button x:Name="number4" Content="4" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" Width="37" Height="31" Click="button_Click" FontWeight="Bold" FontFamily="Lucida Sans" FontSize="24"/>
                 <Button x:Name="number5" Content="5" HorizontalAlignment="Left" Margin="52,79,0,0" VerticalAlignment="Top" Width="37" Height="31" Click="button_Click" FontWeight="Bold" FontFamily="Lucida Sans" FontSize="24"/>
                 <Canvas Margin="94,79,17,115">
@@ -23,17 +24,18 @@
                 </Canvas>
                 <Button x:Name="number1" Content="1" HorizontalAlignment="Left" Margin="10,115,0,0" VerticalAlignment="Top" Width="37" Height="31" Click="button_Click" FontWeight="Bold" FontFamily="Lucida Sans" FontSize="24"/>
                 <Button x:Name="number2" Content="2" HorizontalAlignment="Left" Margin="52,115,0,0" VerticalAlignment="Top" Width="37" Height="31" Click="button_Click" FontWeight="Bold" FontFamily="Lucida Sans" FontSize="24"/>
-                <Button x:Name="number3" Content="3" HorizontalAlignment="Left" Margin="94,115,0,0" VerticalAlignment="Top" Width="37" Height="31" Click="button_Click" FontWeight="Bold" FontFamily="Lucida Sans" FontSize="24" Grid.ColumnSpan="2"/>
-                <Canvas Margin="25,43,50,151" Grid.Column="1">
+                <Button x:Name="number3" Content="3" HorizontalAlignment="Left" Margin="94,115,0,0" VerticalAlignment="Top" Width="37" Height="31" Click="button_Click" FontWeight="Bold" FontFamily="Lucida Sans" FontSize="24" Grid.ColumnSpan="3"/>
+                <Canvas Margin="12.995,43,50,151" Grid.Column="2">
                     <Button x:Name="buttonAddition" Content="+" HorizontalAlignment="Left" Width="37" Click="button_Click" FontWeight="Bold" FontFamily="Lucida Sans" FontSize="24" Height="31"/>
                 </Canvas>
-                <Button x:Name="buttonSubtraction" Content="-" HorizontalAlignment="Left" Margin="25,79,0,0" VerticalAlignment="Top" Width="37" Height="31" Click="button_Click" FontWeight="Bold" FontFamily="Lucida Sans" FontSize="24" Grid.Column="1"/>
-                <Button x:Name="buttonMultiplication" Content="*" HorizontalAlignment="Left" Margin="25,115,0,0" VerticalAlignment="Top" Width="37" Height="31" Click="button_Click" FontWeight="Bold" FontFamily="Lucida Sans" FontSize="24" Grid.Column="1"/>
-                <Button x:Name="buttonDivision" Content="/" HorizontalAlignment="Left" Margin="25,151,0,0" VerticalAlignment="Top" Width="37" Height="31" Click="button_Click" FontWeight="Bold" FontFamily="Lucida Sans" FontSize="24" Grid.Column="1"/>
+                <Button x:Name="buttonSubtraction" Content="-" HorizontalAlignment="Left" Margin="12.995,79,0,0" VerticalAlignment="Top" Width="37" Height="31" Click="button_Click" FontWeight="Bold" FontFamily="Lucida Sans" FontSize="24" Grid.Column="2"/>
+                <Button x:Name="buttonMultiplication" Content="*" HorizontalAlignment="Left" Margin="12.995,115,0,0" VerticalAlignment="Top" Width="37" Height="31" Click="button_Click" FontWeight="Bold" FontFamily="Lucida Sans" FontSize="24" Grid.Column="2"/>
+                <Button x:Name="buttonDivision" Content="/" HorizontalAlignment="Left" Margin="12.995,151,0,0" VerticalAlignment="Top" Width="37" Height="31" Click="button_Click" FontWeight="Bold" FontFamily="Lucida Sans" FontSize="24" Grid.Column="2"/>
                 <Button x:Name="number0" Content="0" HorizontalAlignment="Left" Margin="10,151,0,0" VerticalAlignment="Top" Width="37" Height="31" Click="button_Click" FontWeight="Bold" FontFamily="Lucida Sans" FontSize="24"/>
                 <Button x:Name="buttonClear" Content="clr" HorizontalAlignment="Left" Margin="52,151,0,0" VerticalAlignment="Top" Width="37" Height="31" Click="button_Click" FontWeight="Bold" FontFamily="Lucida Sans" FontSize="24"/>
-                <Button x:Name="buttonEquals" Content="=" HorizontalAlignment="Left" Margin="94,151,0,0" VerticalAlignment="Top" Width="37" Height="31" Click="button_Click" FontWeight="Bold" FontFamily="Lucida Sans" FontSize="24" Grid.ColumnSpan="2"/>
-                <TextBox x:Name="displayBox" HorizontalAlignment="Left" Height="28" Margin="10,10,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="163" FontFamily="Lucida Bright" FontSize="22" TextAlignment="Right" RenderTransformOrigin="0.515,0.571" KeyDown="key_press" Grid.ColumnSpan="2"/>
+                <Button x:Name="buttonEquals" Content="=" HorizontalAlignment="Left" Margin="94,151,0,0" VerticalAlignment="Top" Width="37" Height="31" Click="button_Click" FontWeight="Bold" FontFamily="Lucida Sans" FontSize="24" Grid.ColumnSpan="3"/>
+                <TextBlock x:Name="displayBox" HorizontalAlignment="Left" Height="28" Margin="16.422,10.285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150.144" FontFamily="Lucida Bright" FontSize="22" TextAlignment="Right" RenderTransformOrigin="0.515,0.571" KeyDown="key_press" UseLayoutRounding="False" Background="White" Grid.ColumnSpan="3"><Run Text="0"/></TextBlock>
+                <Border BorderBrush="#FFBBB2B2" BorderThickness="1" HorizontalAlignment="Left" Height="28" Margin="10,10,0,0" VerticalAlignment="Top" Width="163" Grid.ColumnSpan="3"/>
             </Grid>
         </Canvas>
     </Grid>

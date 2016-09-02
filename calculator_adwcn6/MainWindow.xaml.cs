@@ -21,9 +21,10 @@ namespace Calculite
     /// </summary>
     public partial class MainWindow : Window
     {
-        Calculator calculator = new Calculator();
-
         public Boolean shift = false;
+
+        private Calculator calculator = new Calculator();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -91,22 +92,22 @@ namespace Calculite
                     break;
 
                 case "buttonAddition":
-                    calculator.queueOperation(Operation.Add);
+                    displayBox.Text = calculator.queueOperation(Operation.Add);
                     displayBox.Text += "+";
                     break;
 
                 case "buttonSubtraction":
-                    calculator.queueOperation(Operation.Subtract);
+                    displayBox.Text = calculator.queueOperation(Operation.Subtract);
                     displayBox.Text += "-";
                     break;
 
                 case "buttonMultiplication":
-                    calculator.queueOperation(Operation.Multiply);
+                    displayBox.Text = calculator.queueOperation(Operation.Multiply);
                     displayBox.Text += "*";
                     break;
 
                 case "buttonDivision":
-                    calculator.queueOperation(Operation.Divide);
+                    displayBox.Text = calculator.queueOperation(Operation.Divide);
                     displayBox.Text += "/";
                     break;
 
@@ -115,7 +116,7 @@ namespace Calculite
                     calculator.evaluate();
 
                     // Change display box to show result of operation
-                    displayBox.Text = calculator.getNextOperation();
+                    displayBox.Text = calculator.getNextOperand();
                     break;
 
                 case "buttonClear":
@@ -177,7 +178,7 @@ namespace Calculite
                 case Key.D8:
                     if (this.shift)
                     {
-                        calculator.queueOperation(Operation.Multiply);
+                        displayBox.Text = calculator.queueOperation(Operation.Multiply);
                         displayBox.Text += "*";
                         this.shift = false;
                     }
@@ -197,7 +198,8 @@ namespace Calculite
                 case Key.OemPlus:
                     if (this.shift)
                     {
-                        calculator.queueOperation(Operation.Add);
+                        displayBox.Text = calculator.queueOperation(Operation.Add);                        
+                        displayBox.Text = calculator.getNextOperand();
                         displayBox.Text += "+";
                         this.shift = false;
                     }
@@ -207,17 +209,17 @@ namespace Calculite
                         calculator.evaluate();
 
                         // Change display box to show result of operation
-                        displayBox.Text = calculator.getNextOperation();
+                        displayBox.Text = calculator.getNextOperand();
                     }
                     break;
 
                 case Key.OemMinus:
-                    calculator.queueOperation(Operation.Subtract);
+                    displayBox.Text = calculator.queueOperation(Operation.Subtract);
                     displayBox.Text += "-";
                     break;
 
                 case Key.Oem2:
-                    calculator.queueOperation(Operation.Divide);
+                    displayBox.Text = calculator.queueOperation(Operation.Divide);
                     displayBox.Text += "/";
                     break;
 
@@ -235,14 +237,9 @@ namespace Calculite
                     calculator.evaluate();
 
                     // Change display box to show result of operation
-                    displayBox.Text = calculator.getNextOperation();
+                    displayBox.Text = calculator.getNextOperand();
                     break;
                 }
-        }
-
-        public void updateOperandBox(string text)
-        {
-            displayBox.Text = text;
         }
     }
 }
