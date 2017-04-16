@@ -1,6 +1,6 @@
 Calculite
 =========
-Calculite is a simple, four function calculator designed for Windows 10. It was developed for IT4400 as an introduction to WPF applications in Visual Studio.
+Calculite is a simple, four function calculator developed for IT4400 as an introduction to WPF applications in Visual Studio.
 
 Usage
 -----
